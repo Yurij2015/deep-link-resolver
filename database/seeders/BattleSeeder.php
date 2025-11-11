@@ -13,7 +13,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 123,
                 'category' => 'miss_fit',
-                'status' => 'open',
                 'started_at' => '2025-11-09T12:00:00Z',
                 'finished_at' => null,
                 'candidates' => [
@@ -25,7 +24,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 200,
                 'category' => 'miss_fit',
-                'status' => 'closed',
                 'started_at' => '2025-11-09T10:00:00Z',
                 'finished_at' => '2025-11-09T13:00:00Z',
                 'candidates' => [
@@ -37,7 +35,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 300,
                 'category' => 'casual',
-                'status' => 'open',
                 'started_at' => '2025-11-10T08:00:00Z',
                 'finished_at' => null,
                 'candidates' => [
@@ -48,7 +45,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 400,
                 'category' => 'empty_case',
-                'status' => 'open',
                 'started_at' => '2025-01-01T00:00:00Z',
                 'finished_at' => null,
                 'candidates' => [],
@@ -57,7 +53,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 401,
                 'category' => 'null_case',
-                'status' => 'open',
                 'started_at' => '2025-06-01T00:00:00Z',
                 'finished_at' => null,
                 'candidates' => [],
@@ -66,7 +61,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 500,
                 'category' => 'large',
-                'status' => 'closed',
                 'started_at' => '2025-09-01T00:00:00Z',
                 'finished_at' => '2025-09-02T00:00:00Z',
                 'candidates' => array_map(static function ($i) {
@@ -77,7 +71,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 600,
                 'category' => 'future',
-                'status' => 'open',
                 'started_at' => '2026-01-01T00:00:00Z',
                 'finished_at' => null,
                 'candidates' => [
@@ -88,7 +81,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 700,
                 'category' => 'archive',
-                'status' => 'closed',
                 'started_at' => '2020-01-01T00:00:00Z',
                 'finished_at' => '2020-01-02T00:00:00Z',
                 'candidates' => [
@@ -99,7 +91,6 @@ class BattleSeeder extends Seeder
             [
                 'id' => 800,
                 'category' => 'special_category',
-                'status' => 'open',
                 'started_at' => '2025-11-01T00:00:00Z',
                 'finished_at' => null,
                 'candidates' => [

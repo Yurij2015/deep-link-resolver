@@ -11,12 +11,10 @@ return new class extends Migration
         Schema::create('battles', static function (Blueprint $table) {
             $table->id();
             $table->string('category')->nullable();
-            $table->string('status')->default('open');
             $table->timestamp('started_at')->nullable();
             $table->timestamp('finished_at')->nullable();
             $table->json('candidates')->nullable();
 
-            $table->index('status');
             $table->timestamps();
         });
     }

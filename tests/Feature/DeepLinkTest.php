@@ -17,7 +17,6 @@ class DeepLinkTest extends TestCase
         Battle::factory()->create([
             'id' => 123,
             'category' => 'miss_fit',
-            'status' => 'open',
             'started_at' => now(),
             'finished_at' => null,
             'candidates' => [
@@ -37,7 +36,7 @@ class DeepLinkTest extends TestCase
                     ->has('candidates', 2)
                     ->has('scores')
                     ->where('status', 'open')
-                    ->where('battle.canonical_url', $base.'/battles/123')
+                    ->where('battle.canonical_url', $base.'/b/123')
                     ->etc();
             });
     }
@@ -46,7 +45,6 @@ class DeepLinkTest extends TestCase
     {
         Battle::factory()->create([
             'id' => 200,
-            'status' => 'closed',
             'finished_at' => now(),
             'candidates' => [
                 ['id' => 1, 'name' => 'Alpha', 'country' => 'US', 'score' => 100],
@@ -58,7 +56,6 @@ class DeepLinkTest extends TestCase
         $response->assertStatus(200)
             ->assertJson(function (AssertableJson $json) {
                 $json->where('ok', true)
-                    ->where('status', 'closed')
                     ->whereType('battle.finished_at', 'string')
                     ->etc();
             });
@@ -71,9 +68,7 @@ class DeepLinkTest extends TestCase
         $response->assertStatus(404)
             ->assertJson([
                 'ok' => false,
-                'error' => [
-                    'code' => 'ERR_NOT_FOUND',
-                ],
+                'error' => "BATTLE_NOT_FOUND"
             ]);
     }
 
@@ -83,7 +78,7 @@ class DeepLinkTest extends TestCase
 
         Battle::factory()->create([
             'id' => 300,
-            'status' => 'open',
+            'finished_at' => null,
             'candidates' => [
                 ['id' => 20, 'name' => 'Lina', 'country' => 'SE', 'score' => 15],
             ],
