@@ -48,18 +48,20 @@ class DeepLinkController extends Controller
                     }
                 }
 
+                $status = $battle->finished_at ? 'closed' : 'open';
+
                 return [
                     'battle' => [
                         'id' => (int) $battle->id,
                         'category' => $battle->category,
-                        'status' => $battle->status,
+                        'status' => $status,
                         'started_at' => $battle->started_at ? $battle->started_at->toISOString() : null,
                         'finished_at' => $battle->finished_at ? $battle->finished_at->toISOString() : null,
                         'canonical_url' => "{$this->baseUrl}/battles/{$battle->id}",
                     ],
                     'candidates' => $normalizedCandidates,
                     'scores' => $scores,
-                    'status' => $battle->status,
+                    'status' => $status,
                 ];
             });
 
@@ -68,10 +70,7 @@ class DeepLinkController extends Controller
             if ($e->getMessage() === 'not_found') {
                 return response()->json([
                     'ok' => false,
-                    'error' => [
-                        'code' => 'ERR_NOT_FOUND',
-                        'message' => 'Battle not found.',
-                    ],
+                    'error' => "BATTLE_NOT_FOUND",
                 ], 404);
             }
 
