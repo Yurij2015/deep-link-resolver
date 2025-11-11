@@ -16,7 +16,6 @@ class BattleFactory extends Factory
     {
         return [
             'category' => $this->faker->randomElement(['miss_fit', 'casual', 'large', 'special_category']),
-            'status' => 'open',
             'started_at' => now(),
             'finished_at' => null,
             'candidates' => [

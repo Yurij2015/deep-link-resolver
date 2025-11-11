@@ -11,7 +11,6 @@ class Battle extends Model
 
     protected $fillable = [
         'category',
-        'status',
         'started_at',
         'finished_at',
         'candidates'
@@ -23,3 +22,4 @@ class Battle extends Model
         'candidates' => 'array',
     ];
 }
+
