@@ -20,13 +20,13 @@ Run tests against MySQL (inside the Docker app container)
     - Enter shell:
         - `./vendor/bin/sail up -d`  (Laravel Sail)
         - `docker exec -it deep-link-resolver bash`
-        - `./vendor/bin/phpunit -c phpunit.mysql.xml --filter DeepLinkTest --testdox`
+        - `./vendor/bin/pest -c phpunit.mysql.xml --filter DeepLinkTest --testdox`
     - Or one‑liner (when container is running):
         - `docker exec deep-link-resolver ./vendor/bin/phpunit -c phpunit.mysql.xml --filter DeepLinkTest --testdox`
 
 Run tests locally using SQLite (no Docker)
 - Use the local PHPUnit binary; ensure your PHPUnit config or `.`env.testing` selects sqlite:
-    - `./vendor/bin/phpunit --filter DeepLinkTest --testdox`
+    - `./vendor/bin/pest --filter DeepLinkTest --testdox`
 
 Notes
 - Use `-c` to select a non-default PHPUnit config file (for example `phpunit.mysql.xml`).
